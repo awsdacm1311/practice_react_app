@@ -4,7 +4,9 @@ import AddingNumber from './components/addingNumber';
 
 function App() {
   return (
-    <AddingNumber/>
+    <div className='App'>
+      <h1>Hello from React App</h1>
+    </div>
   );
 }
 
