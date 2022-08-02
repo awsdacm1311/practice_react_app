@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import AddingNumber from './components/addingNumber';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 
 function App() {
 
   const [emotion, setEmotion] = useState("Happy");
+  const [check, setCheck] = useReducer((checked)=> !checked, false);
 
   useEffect(() => {
     console.log(emotion)
@@ -13,9 +14,8 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>This is my emotion {emotion}</h1>
-      <button onClick={() => setEmotion("sad")}>Sad</button>
-      <button onClick={() => setEmotion("excited")}>excited</button>
+      <input type="checkbox" value={check} onChange={setCheck}></input>
+      <label>{check ? "checked" : "not checked"}</label>
     </div>
   );
 }
