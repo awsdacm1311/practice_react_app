@@ -10,7 +10,7 @@ function App() {
     },[]);
 
     if(data){
-        return (<pre>{JSON.stringify(data)}</pre>)
+        return (<pre>{JSON.stringify(data, null,2)}</pre>)
     }
 
   return (
