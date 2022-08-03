@@ -1,22 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 import AddingNumber from './components/addingNumber';
-import { useState, useEffect, useReducer } from 'react';
+import { useRef } from 'react';
 
 function App() {
 
-  const [emotion, setEmotion] = useState("Happy");
-  const [check, setCheck] = useReducer((checked)=> !checked, false);
+  const txtColorText = useRef();
+  const txtColorRBG = useRef();
 
-  useEffect(() => {
-    console.log(emotion)
-  },[emotion])
+  const submit = (e) =>{
+    e.preventDefault();
+    const title = txtColorText.current.value;
+    const val = txtColorRBG.current.value;
+    alert(`${title}, and ${val}`)
+  };
 
   return (
-    <div className='App'>
-      <input type="checkbox" value={check} onChange={setCheck}></input>
-      <label>{check ? "checked" : "not checked"}</label>
-    </div>
+    <form onSubmit={submit}>
+      <input ref={txtColorText} type="text" placeholder="Color input"></input>
+      <input ref={txtColorRBG} type="color" ></input>
+      <button>Add</button>
+    </form>
   );
 }
 
